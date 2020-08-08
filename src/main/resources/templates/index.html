@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>Success</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+<h1>List Room</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>priceperday</th>
+        <th>pricepermonth</th>
+    </tr>
+
+    <tr th:if="${lsRoom.empty}">
+        <td colspan="2"> No Room Available </td>
+    </tr>
+    <tr th:each="room : ${lsRoom}">
+        <td><span th:text="${room.id}"> ID </span></td>
+        <td><span th:text="${room.name}"> Name </span></td>
+        <td><span th:text="${room.priceperday}"> priceperday </span></td>
+        <td><span th:text="${room.pricepermonth}"> pricepermonth </span></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
